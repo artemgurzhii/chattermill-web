@@ -3,7 +3,6 @@ import Configuration from 'ember-simple-auth/configuration';
 import Session from 'ember-simple-auth/services/session';
 
 export default class SessionService extends Session {
-  @service store;
   @service router;
   @service currentUser;
 
@@ -31,10 +30,6 @@ export default class SessionService extends Session {
     return user;
   }
 
-  transitionToPrivate() {
-    return this.router.transitionTo(Configuration.routeAfterAuthentication);
-  }
-
   authenticatedUser() {
     try {
       this.setCurrentUser({
@@ -45,5 +40,9 @@ export default class SessionService extends Session {
     } catch (error) {
       return this.invalidateSession();
     }
+  }
+
+  transitionToPrivate() {
+    return this.router.transitionTo(Configuration.routeAfterAuthentication);
   }
 }

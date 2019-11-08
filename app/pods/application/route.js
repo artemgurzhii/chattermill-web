@@ -6,17 +6,10 @@ import ApplicationRouteMixin from 'ember-simple-auth/mixins/application-route-mi
 export default class ApplicationRoute extends Route.extend(ApplicationRouteMixin) {
   @service session;
 
+  // NOTE: Development debug mode
   beforeModel() {
-    // NOTE: Development debug mode
-    const app = getOwner(this);
-    const session = app.lookup('service:session');
-
-    window.app = app;
-    window.session = session;
-
-    super.beforeModel(...arguments);
-
-    return this.session.willAuthenticate();
+    window.app = getOwner(this);
+    window.session = this.session;
   }
 
   sessionAuthenticated() {

@@ -19,8 +19,8 @@ export default class ApplicationAdapter extends DS.JSONAPIAdapter.extend(DataAda
   namespace = namespace;
 
   authorize(xhr) {
-    const accessToken = get(this, 'session.data.authenticated.access_token');
+    const token = get(this, 'session.data.authenticated.token');
 
-    xhr.setRequestHeader('Authorization', `Bearer ${accessToken}`);
+    xhr.setRequestHeader('Authorization', `Bearer ${token}`);
   }
 }

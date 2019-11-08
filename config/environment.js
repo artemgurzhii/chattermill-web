@@ -36,8 +36,8 @@ module.exports = function(environment) {
     },
 
     'ember-simple-auth': {
-      routeAfterAuthentication: 'authenticated',
-      routeIfAlreadyAuthenticated: 'authenticated',
+      routeAfterAuthentication: 'authenticated.feed',
+      routeIfAlreadyAuthenticated: 'authenticated.feed',
     },
   };
 
