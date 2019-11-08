@@ -34,6 +34,11 @@ module.exports = function(environment) {
       host: API_HOSTS[environment],
       namespace: 'api',
     },
+
+    'ember-simple-auth': {
+      routeAfterAuthentication: 'authenticated',
+      routeIfAlreadyAuthenticated: 'authenticated',
+    },
   };
 
   if (environment === 'development') {

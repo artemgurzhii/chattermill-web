@@ -1,14 +1,13 @@
 import Service, { inject as service } from '@ember/service';
-import fetch from 'fetch';
+
+const LOGIN_URL = 'https://chattermill-challenge.com/login';
 
 export default class ActionsAuthService extends Service {
   @service requests;
 
   async login({ username, password }) {
-    const data = `username=${username}&password=${password}`;
-
-    return this.requests.post('https://chattermill-challenge.com/login', data)
-      .then(result => result.json())
-      .then(result => {debugger})
+    return this.requests
+      .post(LOGIN_URL, { username, password })
+      .then(result => result.json());
   }
 }

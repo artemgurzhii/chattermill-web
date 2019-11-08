@@ -1,5 +1,6 @@
+import { objectToQuery } from 'chattermill-web/utils';
 import Service from '@ember/service';
-import fetch from 'fetch';
+import fetch from 'fetch'; // eslint-disable-line
 
 export default class RequestsService extends Service {
   post(url, data) {
@@ -10,13 +11,12 @@ export default class RequestsService extends Service {
     try {
       const params = {
         method,
-        body: 'username=artem&password=5hhjAjgATRzc9vKb',
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded',
         },
       };
 
-      if (data) params.body = data;
+      if (data) params.body = objectToQuery(data);
 
       return fetch(url, params);
     } catch (error) {

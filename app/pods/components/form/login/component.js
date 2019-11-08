@@ -5,7 +5,7 @@ import { isBlank } from '@ember/utils';
 import { task } from 'ember-concurrency-decorators';
 
 export default class FormLoginComponent extends Component {
-  @service('actions/auth') authActions;
+  @service session;
 
   @tracked username;
   @tracked password;
@@ -18,7 +18,7 @@ export default class FormLoginComponent extends Component {
 
   @task({ drop: true })
   *submit() {
-    const result = yield this.authActions.login({
+    const result = yield this.session.authenticate('authenticator:base', {
       username: this.username,
       password: this.password,
     });
