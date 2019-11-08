@@ -1,26 +1,39 @@
 'use strict';
 
+const API_HOSTS = {
+  test: 'http://chattermill-challenge.com/',
+  development: 'http://chattermill-challenge.com/',
+  production: 'http://chattermill-challenge.com/',
+};
+
 module.exports = function(environment) {
-  let ENV = {
+  const ENV = {
     modulePrefix: 'chattermill-web',
+    podModulePrefix: 'chattermill-web/pods',
     environment,
     rootURL: '/',
     locationType: 'auto',
     EmberENV: {
       FEATURES: {
-        // Here you can enable experimental features on an ember canary build
-        // e.g. EMBER_MODULE_UNIFICATION: true
+        EMBER_METAL_TRACKED_PROPERTIES: true,
+        EMBER_NATIVE_DECORATOR_SUPPORT: true,
       },
       EXTEND_PROTOTYPES: {
         // Prevent Ember Data from overriding Date.parse.
-        Date: false
-      }
+        // https://github.com/DockYard/styleguides/blob/master/engineering/ember.md#dont-use-embers-prototype-extensions
+        Array: true,
+        Date: false,
+        Function: false,
+        String: false,
+      },
     },
 
-    APP: {
-      // Here you can pass flags/options to your application instance
-      // when it is created
-    }
+    APP: {},
+
+    CW: {
+      host: API_HOSTS[environment],
+      namespace: 'api',
+    },
   };
 
   if (environment === 'development') {
@@ -46,6 +59,15 @@ module.exports = function(environment) {
   if (environment === 'production') {
     // here you can enable a production-specific feature
   }
+
+  ENV.contentSecurityPolicy = {
+    'default-src': `'self' ${ENV.CW.host}`,
+    'font-src': "'self'",
+    'style-src': "'self' 'unsafe-inline'",
+    'script-src': "'self'",
+    'img-src': "'self'",
+    'connect-src': "'self'",
+  };
 
   return ENV;
 };

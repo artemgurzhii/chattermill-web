@@ -1,18 +1,29 @@
-# unconventional js
-/blueprints/*/files/
-/vendor/
+# See https://help.github.com/ignore-files/ for more about ignoring files.
 
 # compiled output
 /dist/
 /tmp/
+
+# bundle analysis
+/concat-stats-for
+
+# generated as a part of deployment
+/public/bundle.html
 
 # dependencies
 /bower_components/
 /node_modules/
 
 # misc
-/coverage/
-!.*
+/.env*
+/.pnp*
+/.sass-cache
+/connect.lock
+/coverage*
+/libpeerconnection.log
+/npm-debug.log*
+/testem.log
+/yarn-error.log
 
 # ember-try
 /.node_modules.ember-try/

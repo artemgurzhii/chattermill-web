@@ -2,5 +2,12 @@
   "compilerOptions": {
     "experimentalDecorators": true
   },
-  "exclude": ["node_modules", "dist"]
+  "exclude": [
+    "node_modules",
+    "bower_components",
+    "tmp",
+    "vendor",
+    ".git",
+    "dist"
+  ]
 }

@@ -1,0 +1,54 @@
+<div class="w-full max-w-xs">
+  <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+    <div class="mb-4">
+      <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
+        {{t "forms.username"}}
+      </label>
+
+      <input
+        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+        id="username"
+        type="text"
+        placeholder={{t "forms.username"}}
+        autocomplete="username"
+        oninput={{action (mut this.username) value='target.value'}}
+        value={{this.username}}
+      >
+    </div>
+
+    <div class="mb-6">
+      <label class="block text-gray-700 text-sm font-bold mb-2" for="password">
+        {{t "forms.password"}}
+      </label>
+
+      <input
+        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
+        autocomplete="current-password"
+        id="password"
+        type="password"
+        placeholder="******************"
+        oninput={{action (mut this.password) value='target.value'}}
+        value={{this.password}}
+      >
+    </div>
+
+    <div class="flex items-center justify-between">
+      <button
+        class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline {{if this.disableSubmit "opacity-50 cursor-not-allowed"}}"
+        type="button"
+        disabled={{this.disableSubmit}}
+        {{on "click" (perform this.submit)}}
+      >
+        {{t "buttons.sign_in"}}
+      </button>
+
+      <button class="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800" type="button">
+        {{t "buttons.password_forgot"}}
+      </button>
+    </div>
+  </form>
+
+  <p class="text-center text-gray-500 text-xs">
+    &copy;2019 Artem Hurzhii Inc. All rights reserved.
+  </p>
+</div>

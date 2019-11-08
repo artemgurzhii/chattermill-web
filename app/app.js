@@ -1,7 +1,7 @@
-import Application from '@ember/application';
-import Resolver from './resolver';
+import Resolver from 'chattermill-web/resolver';
+import config from 'ember-get-config';
 import loadInitializers from 'ember-load-initializers';
-import config from './config/environment';
+import Application from '@ember/application';
 
 export default class App extends Application {
   modulePrefix = config.modulePrefix;

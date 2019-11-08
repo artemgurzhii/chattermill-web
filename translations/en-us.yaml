@@ -1,0 +1,10 @@
+general:
+  title: "Chattermill Web"
+
+forms:
+  username: "Username"
+  password: "Password"
+
+buttons:
+  sign_in: "Sign in"
+  password_forgot: "Forgot Password?"
