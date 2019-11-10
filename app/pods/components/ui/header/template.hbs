@@ -1,0 +1,23 @@
+<nav class="flex items-center justify-between flex-wrap bg-teal-500 p-6">
+  <div class="flex items-center flex-shrink-0 text-white mr-6">
+    <span class="font-semibold text-xl tracking-tight">{{t "text.app_name"}}</span>
+  </div>
+
+  <div>
+    <a href="https://github.com/artemgurzhii/chattermill-web"
+      class="inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-teal-500 hover:bg-white mt-4 lg:mt-0"
+    >
+      {{t "text.github_link"}}
+    </a>
+
+    {{#if this.session.isAuthenticated}}
+      <button
+        type="button"
+        class="inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-teal-500 hover:bg-white mt-4 lg:mt-0"
+        {{on "click" this.logout}}
+      >
+        {{t "buttons.sign_out"}}
+      </button>
+    {{/if}}
+  </div>
+</nav>

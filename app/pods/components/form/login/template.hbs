@@ -11,7 +11,7 @@
         type="text"
         placeholder={{t "forms.username"}}
         autocomplete="username"
-        oninput={{action (mut this.username) value='target.value'}}
+        oninput={{action (mut this.username) value="target.value"}}
         value={{this.username}}
       >
     </div>
@@ -27,28 +27,20 @@
         id="password"
         type="password"
         placeholder="******************"
-        oninput={{action (mut this.password) value='target.value'}}
+        oninput={{action (mut this.password) value="target.value"}}
         value={{this.password}}
       >
     </div>
 
-    <div class="flex items-center justify-between">
+    <div class="flex justify-center">
       <button
-        class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline {{if this.disableSubmit "opacity-50 cursor-not-allowed"}}"
+        class="bg-blue-500 w-full hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline {{if this.disableSubmit "opacity-50 cursor-not-allowed"}}"
         type="button"
         disabled={{this.disableSubmit}}
         {{on "click" (perform this.submit)}}
       >
         {{t "buttons.sign_in"}}
       </button>
-
-      <button class="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800" type="button">
-        {{t "buttons.password_forgot"}}
-      </button>
     </div>
   </form>
-
-  <p class="text-center text-gray-500 text-xs">
-    &copy;2019 Artem Hurzhii Inc. All rights reserved.
-  </p>
 </div>

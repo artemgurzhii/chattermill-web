@@ -7,4 +7,8 @@ forms:
 
 buttons:
   sign_in: "Sign in"
-  password_forgot: "Forgot Password?"
+  sign_out: "Logout"
+
+text:
+  app_name: "ChattermillWeb"
+  github_link: "Github Repository link"

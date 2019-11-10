@@ -1,9 +1,9 @@
 'use strict';
 
 const API_HOSTS = {
-  test: 'http://chattermill-challenge.com/',
-  development: 'http://chattermill-challenge.com/',
-  production: 'http://chattermill-challenge.com/',
+  test: 'http://chattermill-challenge.com',
+  development: 'http://chattermill-challenge.com',
+  production: 'http://chattermill-challenge.com',
 };
 
 module.exports = function(environment) {

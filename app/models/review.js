@@ -5,5 +5,5 @@ export default class ReviewModel extends Model {
   @attr('string') comment;
   @attr('date') createdAt;
 
-  @attr('array') themes;
+  @attr('theme') themes;
 }

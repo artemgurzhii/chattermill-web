@@ -73,9 +73,9 @@ module.exports = {
     'simple-unless': true,
     'style-concatenation': true,
     'table-groups': true,
-    'template-length': {
-      max: 100,
-      min: 5
-    }
+    // 'template-length': {
+    //   max: 100,
+    //   min: 5
+    // }
   }
 };
