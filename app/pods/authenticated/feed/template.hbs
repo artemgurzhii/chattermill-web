@@ -1,4 +1,31 @@
-<h1>Hello from the feed page</h1>
+<FilterPanel
+  @filterKeys={{this.filterKeys}}
+  @model={{this.reviews}}
+as |panel|>
+  <h2>{{t "general.filters"}}</h2>
+
+  {{#each this.filters as |filter|}}
+    <panel.item
+      @value={{filter.value}}
+      @type={{filter.type}}
+      @translation={{t "forms.filter"}}
+    />
+  {{/each}}
+
+  <panel.button
+    {{on "click" this.addFilter}}
+    class="px-3 py-1 rounded"
+    @text={{t "forms.add_filter"}}
+    @title={{t "forms.add_filter"}}
+  />
+
+  <panel.button
+    {{on "click" this.filter}}
+    class="px-3 py-1 rounded"
+    @text={{t "forms.filter"}}
+    @title={{t "forms.filter"}}
+  />
+</FilterPanel>
 
 {{#each this.reviews as |review|}}
   {{review.comment}}

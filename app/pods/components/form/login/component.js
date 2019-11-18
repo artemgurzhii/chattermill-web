@@ -18,11 +18,8 @@ export default class FormLoginComponent extends Component {
 
   @task({ drop: true })
   *submit() {
-    const result = yield this.session.authenticate('authenticator:base', {
-      username: this.username,
-      password: this.password,
-    });
+    const { username, password } = this;
 
-    return result;
+    return yield this.session.authenticate('authenticator:base', { username, password });
   }
 }

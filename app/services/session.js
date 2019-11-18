@@ -4,15 +4,12 @@ import Session from 'ember-simple-auth/services/session';
 
 export default class SessionService extends Session {
   @service router;
-  @service currentUser;
 
   async didAuthenticate() {
     return this.authenticatedUser();
   }
 
-  didInvalidate() {
-    this.setCurrentUser(null);
-  }
+  didInvalidate() {}
 
   invalidateSession() {
     if (this.isAuthenticated) this.invalidate();
@@ -24,18 +21,8 @@ export default class SessionService extends Session {
     return this.authenticatedUser();
   }
 
-  setCurrentUser(user) {
-    this.currentUser.content = user;
-
-    return user;
-  }
-
   authenticatedUser() {
     try {
-      this.setCurrentUser({
-        isAuthenticated: true,
-      });
-
       return this.transitionToPrivate();
     } catch (error) {
       return this.invalidateSession();

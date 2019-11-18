@@ -1,0 +1,13 @@
+<div class="wrapper">
+  <label class="block text-gray-700 text-sm font-bold mb-2" for={{this.formElementId}}>
+    {{@translation}}
+  </label>
+
+  <Input
+    class="shadow border rounded w-full py-2 px-3 text-gray-700 leading-tight"
+    id={{this.formElementId}}
+    type={{@type}}
+    placeholder={{@translation}}
+    @value={{@value}}
+  />
+</div>

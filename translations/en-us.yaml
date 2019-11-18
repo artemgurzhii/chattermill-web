@@ -1,9 +1,12 @@
 general:
   title: "Chattermill Web"
+  filters: "Filters"
 
 forms:
   username: "Username"
   password: "Password"
+  add_filter: "Add filter"
+  filter: "Filter"
 
 buttons:
   sign_in: "Sign in"
