@@ -1,5 +1,6 @@
 import Controller from '@ember/controller';
 import { action, setProperties } from '@ember/object';
+import { tracked } from '@glimmer/tracking';
 
 const POSSIBLE_FILTER_KEYS = {
   theme_id: {
@@ -17,11 +18,11 @@ export default class AuthenticatedFeedController extends Controller {
 
   filterKeys = POSSIBLE_FILTER_KEYS;
 
-  filters = [];
+  @tracked filters = [];
 
   @action
   addFilter() {
-    this.filters.push({});
+    this.filters.pushObject({});
   }
 
   @action
