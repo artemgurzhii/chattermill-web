@@ -1,0 +1,18 @@
+<div class="review-item flex">
+  <div class="review-data mr-10 max-w-xs min-w-xs">
+    <p><b>{{t "general.id"}}</b> - {{@item.id}}</p>
+    <p><b>{{t "general.created_at"}}</b> - {{readable-date @item.createdAt}}</p>
+  </div>
+
+  <p class="review-feedback mr-10 max-w-xs min-w-xs">
+    <b>{{t "reviews.comment"}}</b> - {{@item.comment}}
+  </p>
+
+  <div class="review-info max-w-xs min-w-xs">
+    {{#each @item.themes as |theme|}}
+      <ReviewItem::Info
+        @info={{theme}}
+      />
+    {{/each}}
+  </div>
+</div>

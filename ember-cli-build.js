@@ -36,6 +36,10 @@ module.exports = function(defaults) {
       enabled: !isProduction,
       extensions: 'js',
     },
+    'ember-ast-hot-load': {
+      helpers: ["readable-date"],
+      enabled: true
+    }
     /* eslint-disable global-require */
     postcssOptions: {
       compile: {

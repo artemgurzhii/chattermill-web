@@ -1,6 +1,8 @@
 general:
   title: "Chattermill Web"
   filters: "Filters"
+  id: "ID number"
+  created_at: "Created at"
 
 forms:
   username: "Username"
@@ -15,3 +17,8 @@ buttons:
 text:
   app_name: "ChattermillWeb"
   github_link: "Github Repository link"
+
+reviews:
+  comment: "User review"
+  reaction: "User reaction"
+  theme_name: "Theme name"

@@ -1,4 +1,4 @@
-<FilterPanel
+{{!-- <FilterPanel
   @filterKeys={{this.filterKeys}}
   @model={{this.reviews}}
 as |panel|>
@@ -25,8 +25,11 @@ as |panel|>
     @text={{t "forms.filter"}}
     @title={{t "forms.filter"}}
   />
-</FilterPanel>
+</FilterPanel> --}}
 
 {{#each this.reviews as |review|}}
-  {{review.comment}}
+  <ReviewItem
+    @item={{review}}
+  />
+  <br>
 {{/each}}
